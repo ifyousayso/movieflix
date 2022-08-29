@@ -1,8 +1,8 @@
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 import Colors from "../../utilities/constants/colors";
 
-const Title = () => {
+const AppName = () => {
 	return <Text style={styles.h1}>MovieFlix</Text>;
 };
 
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Title;
+export default AppName;

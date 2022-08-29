@@ -1,21 +1,40 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 
-import Colors from "../utilities/constants/colors";
+import SceneTemplate from "../components/ui/SceneTemplate";
 import H2 from "../components/ui/H2";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Colors from "../utilities/constants/colors";
 
-const MainScene = () => {
+const MainScene = ({ navigation }) => {
+	const onPressDocumentaries = () => {
+		navigation.navigate("DocumentaryCategories");
+	};
+
+	const onPressMovies = () => {
+		navigation.navigate("MovieCategories");
+	};
+
+	const onPressSeries = () => {
+		navigation.navigate("SeriesCategories");
+	};
+
+	const onPressSports = () => {
+		navigation.navigate("SportCategories");
+	};
+
 	return (
-		<>
+		<SceneTemplate>
 			<View style={styles.categoriesBox}>
 				<H2>What would you like to watch?</H2>
 				<View style={styles.buttonRow}>
-					<PrimaryButton>Series</PrimaryButton>
-					<PrimaryButton>Movies</PrimaryButton>
+					<PrimaryButton onPress={onPressSeries}>Series</PrimaryButton>
+					<PrimaryButton onPress={onPressMovies}>Movies</PrimaryButton>
 				</View>
 				<View style={styles.buttonRow}>
-					<PrimaryButton>Documentaries</PrimaryButton>
-					<PrimaryButton>Sport</PrimaryButton>
+					<PrimaryButton onPress={onPressDocumentaries}>
+						Documentaries
+					</PrimaryButton>
+					<PrimaryButton onPress={onPressSports}>Sport</PrimaryButton>
 				</View>
 			</View>
 			<View style={styles.recommendedBox}>
@@ -26,7 +45,7 @@ const MainScene = () => {
 					source={require("../assets/images/the-batman.jpg")}
 				/>
 			</View>
-		</>
+		</SceneTemplate>
 	);
 };
 

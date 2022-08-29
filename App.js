@@ -1,46 +1,76 @@
-import {
-	StyleSheet,
-	ImageBackground,
-	StatusBar,
-	SafeAreaView,
-	View
-} from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
+import { SafeAreaView, StyleSheet } from "react-native";
+// import { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Colors from "./utilities/constants/colors";
-import Title from "./components/ui/Title";
-import LoginScene from "./scenes/LoginScene";
+// import LoginScene from "./scenes/LoginScene";
 import MainScene from "./scenes/MainScene";
+import DocumentaryCategoriesScene from "./scenes/DocumentaryCategoriesScene";
+import MovieCategoriesScene from "./scenes/MovieCategoriesScene";
+import SeriesCategoriesScene from "./scenes/SeriesCategoriesScene";
+import SportCategoriesScene from "./scenes/SportCategoriesScene";
+import MoviesScene from "./scenes/MoviesScene";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	// const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-	const logIn = () => {
-		setIsLoggedIn(true);
-	};
+	// const logIn = () => {
+	// 	setIsLoggedIn(true);
+	// };
 
-	let scene = <LoginScene logIn={logIn} />;
+	// let scene = <LoginScene logIn={logIn} />;
+	// scene = <CategoriesScene />;
 
-	if (isLoggedIn) {
-		scene = <MainScene />;
-	}
+	// if (isLoggedIn) {
+	// 	scene = <MainScene />;
+	// }
 
 	return (
 		<>
-			<StatusBar barStyle="light-content" />
-			<LinearGradient colors={Colors.gradientBackground}>
-				<ImageBackground
-					source={require("./assets/images/bg_batman.jpg")}
-					imageStyle={styles.backgroundImage}
-					resizeMode="cover"
-				>
-					<SafeAreaView style={styles.screen}>
-						<Title />
-						<View style={styles.scene}>{scene}</View>
-					</SafeAreaView>
-				</ImageBackground>
-			</LinearGradient>
+			<SafeAreaView style={styles.screen}>
+				<NavigationContainer>
+					<Stack.Navigator
+						screenOptions={{
+							headerStyle: { backgroundColor: "#000" },
+							headerTintColor: "#fff",
+							contentStyle: { backgroundColor: "#000" }
+						}}
+					>
+						<Stack.Screen
+							name="Main"
+							component={MainScene}
+							options={{ title: "" }}
+						/>
+						<Stack.Screen
+							name="DocumentaryCategories"
+							component={DocumentaryCategoriesScene}
+							options={{ title: "Categories" }}
+						/>
+						<Stack.Screen
+							name="MovieCategories"
+							component={MovieCategoriesScene}
+							options={{ title: "Categories" }}
+						/>
+						<Stack.Screen
+							name="SeriesCategories"
+							component={SeriesCategoriesScene}
+							options={{ title: "Categories" }}
+						/>
+						<Stack.Screen
+							name="SportCategories"
+							component={SportCategoriesScene}
+							options={{ title: "Categories" }}
+						/>
+						<Stack.Screen
+							name="Movies"
+							component={MoviesScene}
+							options={{ title: "Movies" }}
+						/>
+					</Stack.Navigator>
+				</NavigationContainer>
+			</SafeAreaView>
 		</>
 	);
 }
@@ -48,14 +78,5 @@ export default function App() {
 const styles = StyleSheet.create({
 	screen: {
 		height: "100%"
-	},
-	backgroundImage: {
-		opacity: 0.2
-	},
-	scene: {
-		flex: 1,
-		flexDirection: "column",
-		padding: 4,
-		justifyContent: "space-evenly"
 	}
 });

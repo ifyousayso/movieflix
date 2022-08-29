@@ -4,13 +4,9 @@ import { MOVIE_SERIES_CATEGORIES } from "../data/CategoriesData";
 import SceneTemplate from "../components/ui/SceneTemplate";
 import CategoryItem from "../components/CategoryItem";
 
-const MovieCategoriesScene = ({ navigation }) => {
+const SeriesCategoriesScene = () => {
 	const renderCategoryItem = (category) => {
-		const onPressCategoryItem = () => {
-			navigation.navigate("Movies", { category: category.item });
-		};
-
-		return <CategoryItem item={category.item} onPress={onPressCategoryItem} />;
+		return <CategoryItem item={category.item} />;
 	};
 
 	return (
@@ -25,4 +21,4 @@ const MovieCategoriesScene = ({ navigation }) => {
 	);
 };
 
-export default MovieCategoriesScene;
+export default SeriesCategoriesScene;
