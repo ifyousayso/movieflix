@@ -1,6 +1,6 @@
 import { Pressable, Text, StyleSheet } from "react-native";
 
-import Colors from "../../utilities/constants/colors";
+import { COLORS } from "../../utilities/constants/colors";
 
 const PrimaryButton = ({ children, onPress }) => {
 	return (
@@ -12,18 +12,18 @@ const PrimaryButton = ({ children, onPress }) => {
 
 const styles = StyleSheet.create({
 	pressable: {
-		borderColor: Colors.secondaryText,
+		borderColor: COLORS.secondaryText,
 		borderWidth: 2,
 		marginHorizontal: 8,
 		borderRadius: 6,
-		backgroundColor: Colors.primaryBackground,
+		backgroundColor: COLORS.primaryBackground,
 		width: 130,
 		height: 30,
 		justifyContent: "center"
 	},
 	text: {
 		textAlign: "center",
-		color: Colors.secondaryText,
+		color: COLORS.secondaryText,
 		fontSize: 14,
 		fontWeight: "bold"
 	}

@@ -1,7 +1,7 @@
 import { Alert, View, TextInput, StyleSheet } from "react-native";
 import { useState } from "react";
 
-import Colors from "../utilities/constants/colors";
+import { COLORS } from "../utilities/constants/colors";
 import H2 from "../components/ui/H2";
 import Card from "../components/ui/Card";
 import PrimaryButton from "../components/ui/PrimaryButton";
@@ -54,7 +54,7 @@ const LoginScene = ({ logIn }) => {
 				<TextInput
 					style={styles.textInput}
 					placeholder="e-mail"
-					placeholderTextColor={Colors.darkText}
+					placeholderTextColor={COLORS.darkText}
 					keyboardType="email-address"
 					autoCapitalize="none"
 					autoCorrect={false}
@@ -63,7 +63,7 @@ const LoginScene = ({ logIn }) => {
 				<TextInput
 					style={styles.textInput}
 					placeholder="password"
-					placeholderTextColor={Colors.darkText}
+					placeholderTextColor={COLORS.darkText}
 					keyboardType="default"
 					secureTextEntry={true}
 					autoCapitalize="none"
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
 		padding: 4,
 		borderBottomWidth: 1,
 		width: "100%",
-		borderBottomColor: Colors.secondaryText,
+		borderBottomColor: COLORS.secondaryText,
 		textAlign: "center",
 		marginBottom: 24,
-		color: Colors.lightText
+		color: COLORS.lightText
 	},
 	buttonRow: {
 		flexDirection: "row"

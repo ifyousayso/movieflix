@@ -1,4 +1,4 @@
-const Colors = {
+export const COLORS = {
 	primaryText: "#b61919",
 	secondaryText: "#ddb52f",
 	lightText: "#fff",
@@ -8,5 +8,3 @@ const Colors = {
 	primaryTransparentBackground: "#0006",
 	gradientBackground: ["#000", "#444"]
 };
-
-export default Colors;

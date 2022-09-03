@@ -3,7 +3,7 @@ import { View, StyleSheet, Image } from "react-native";
 import SceneTemplate from "../components/ui/SceneTemplate";
 import H2 from "../components/ui/H2";
 import PrimaryButton from "../components/ui/PrimaryButton";
-import Colors from "../utilities/constants/colors";
+import { COLORS } from "../utilities/constants/colors";
 
 const MainScene = ({ navigation }) => {
 	const onPressDocumentaries = () => {
@@ -34,7 +34,7 @@ const MainScene = ({ navigation }) => {
 					<PrimaryButton onPress={onPressDocumentaries}>
 						Documentaries
 					</PrimaryButton>
-					<PrimaryButton onPress={onPressSports}>Sport</PrimaryButton>
+					<PrimaryButton onPress={onPressSports}>Sports</PrimaryButton>
 				</View>
 			</View>
 			<View style={styles.recommendedBox}>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 		width: 160,
 		height: 160,
 		borderWidth: 1,
-		borderColor: Colors.primaryText,
+		borderColor: COLORS.primaryText,
 		borderRadius: 4
 	}
 });

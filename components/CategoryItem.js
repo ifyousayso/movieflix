@@ -1,6 +1,6 @@
 import { Image, Pressable, StyleSheet, Text } from "react-native";
 
-import Colors from "../utilities/constants/colors";
+import { COLORS } from "../utilities/constants/colors";
 
 const CategoryItem = ({ item, onPress }) => {
 	return (
@@ -13,7 +13,7 @@ const CategoryItem = ({ item, onPress }) => {
 
 const styles = StyleSheet.create({
 	name: {
-		color: Colors.lightText,
+		color: COLORS.lightText,
 		fontSize: 16
 	},
 	image: {

@@ -7,7 +7,9 @@ import CategoryItem from "../components/CategoryItem";
 const MovieCategoriesScene = ({ navigation }) => {
 	const renderCategoryItem = (category) => {
 		const onPressCategoryItem = () => {
-			navigation.navigate("Movies", { category: category.item });
+			navigation.navigate("Movies", {
+				category: category.item
+			});
 		};
 
 		return <CategoryItem item={category.item} onPress={onPressCategoryItem} />;

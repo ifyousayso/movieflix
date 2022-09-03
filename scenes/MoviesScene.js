@@ -2,10 +2,9 @@ import { Text, Image, FlatList, StyleSheet, View } from "react-native";
 
 import { MOVIES } from "../data/MoviesData";
 import SceneTemplate from "../components/ui/SceneTemplate";
-import H2 from "../components/ui/H2";
 // import Colors from "../utilities/constants/colors";
 
-const MoviesScene = ({ route }) => {
+const MoviesScene = ({ navigation, route }) => {
 	const category = route.params.category;
 
 	const displayedMovies = MOVIES.filter(
@@ -14,18 +13,14 @@ const MoviesScene = ({ route }) => {
 
 	const renderMovie = (movieItem) => (
 		<View>
-			<Text style={styles.title}>{movieItem.item.title}</Text>
-			<Image
-				style={styles.movieImage}
-				source={{ uri: movieItem.item.imageUrl }}
-			/>
-			<Text style={styles.title}>{movieItem.item.plot}</Text>
+			<Text style={styles.h3}>{movieItem.item.title}</Text>
+			<Image style={styles.image} source={{ uri: movieItem.item.imageUrl }} />
+			<Text style={styles.plot}>{movieItem.item.plot}</Text>
 		</View>
 	);
 
 	return (
 		<SceneTemplate>
-			<H2>{category.name}</H2>
 			<FlatList
 				data={displayedMovies}
 				keyExtractor={(item) => item.id}
@@ -36,14 +31,17 @@ const MoviesScene = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-	title: {
+	h3: {
 		color: "#f00"
 	},
-	movieImage: {
+	image: {
 		width: "100%",
 		height: 400,
 		resizeMode: "cover",
 		marginBottom: 20
+	},
+	plot: {
+		color: "#fff"
 	}
 });
 

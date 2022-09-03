@@ -1,8 +1,8 @@
-import { SafeAreaView, StyleSheet } from "react-native";
 // import { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+// Jag har valt att namnge mina vyer "Scene" eftersom screen betyder skärm och är inte riktigt samma sak.
 // import LoginScene from "./scenes/LoginScene";
 import MainScene from "./scenes/MainScene";
 import DocumentaryCategoriesScene from "./scenes/DocumentaryCategoriesScene";
@@ -28,55 +28,47 @@ export default function App() {
 	// }
 
 	return (
-		<>
-			<SafeAreaView style={styles.screen}>
-				<NavigationContainer>
-					<Stack.Navigator
-						screenOptions={{
-							headerStyle: { backgroundColor: "#000" },
-							headerTintColor: "#fff",
-							contentStyle: { backgroundColor: "#000" }
-						}}
-					>
-						<Stack.Screen
-							name="Main"
-							component={MainScene}
-							options={{ title: "" }}
-						/>
-						<Stack.Screen
-							name="DocumentaryCategories"
-							component={DocumentaryCategoriesScene}
-							options={{ title: "Categories" }}
-						/>
-						<Stack.Screen
-							name="MovieCategories"
-							component={MovieCategoriesScene}
-							options={{ title: "Categories" }}
-						/>
-						<Stack.Screen
-							name="SeriesCategories"
-							component={SeriesCategoriesScene}
-							options={{ title: "Categories" }}
-						/>
-						<Stack.Screen
-							name="SportCategories"
-							component={SportCategoriesScene}
-							options={{ title: "Categories" }}
-						/>
-						<Stack.Screen
-							name="Movies"
-							component={MoviesScene}
-							options={{ title: "Movies" }}
-						/>
-					</Stack.Navigator>
-				</NavigationContainer>
-			</SafeAreaView>
-		</>
+		<NavigationContainer>
+			<Stack.Navigator
+				screenOptions={{
+					headerStyle: { backgroundColor: "#000" },
+					headerTintColor: "#fff",
+					contentStyle: { backgroundColor: "#000" }
+				}}
+			>
+				<Stack.Screen
+					name="Main"
+					component={MainScene}
+					// Tom titel, både i scenen och i tillbaka-knappen; "null" visar annars "Back" efter pilen.
+					options={{ title: "" }}
+				/>
+				<Stack.Screen
+					name="DocumentaryCategories"
+					component={DocumentaryCategoriesScene}
+					options={{ title: "Documentaries" }}
+				/>
+				<Stack.Screen
+					name="MovieCategories"
+					component={MovieCategoriesScene}
+					options={{ title: "Movies" }}
+				/>
+				<Stack.Screen
+					name="SeriesCategories"
+					component={SeriesCategoriesScene}
+					options={{ title: "Series" }}
+				/>
+				<Stack.Screen
+					name="SportCategories"
+					component={SportCategoriesScene}
+					options={{ title: "Sports" }}
+				/>
+				<Stack.Screen
+					name="Movies"
+					component={MoviesScene}
+					// Titeln på filmkategorisidan ska vara kategorins namn.
+					options={({ route }) => ({ title: route.params.category.name })}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 }
-
-const styles = StyleSheet.create({
-	screen: {
-		height: "100%"
-	}
-});
