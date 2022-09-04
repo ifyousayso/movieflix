@@ -1,4 +1,4 @@
-class Movie {
+export default class {
 	constructor(
 		id,
 		title,
@@ -21,5 +21,3 @@ class Movie {
 		this.imageUrl = imageUrl;
 	}
 }
-
-export default Movie;

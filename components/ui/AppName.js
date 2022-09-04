@@ -1,10 +1,6 @@
 import { StyleSheet, Text } from "react-native";
 
-import { COLORS } from "../../utilities/constants/colors";
-
-const AppName = () => {
-	return <Text style={styles.h1}>MovieFlix</Text>;
-};
+import COLORS from "../../utilities/constants/colors";
 
 const styles = StyleSheet.create({
 	h1: {
@@ -15,4 +11,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default AppName;
+export default () => <Text style={styles.h1}>MovieFlix</Text>;

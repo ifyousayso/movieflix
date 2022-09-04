@@ -1,10 +1,6 @@
 import { View, StyleSheet } from "react-native";
 
-import { COLORS } from "../../utilities/constants/colors";
-
-const Card = ({ children }) => {
-	return <View style={styles.view}>{children}</View>;
-};
+import COLORS from "../../utilities/constants/colors";
 
 const styles = StyleSheet.create({
 	view: {
@@ -14,11 +10,7 @@ const styles = StyleSheet.create({
 		padding: 24,
 		backgroundColor: COLORS.primaryTransparentBackground,
 		borderRadius: 8
-		// elevation: 10,
-		// shadowColor: "#000",
-		// shadowOffset: { width: 10, height: 10 },
-		// shadowRadius: 10
 	}
 });
 
-export default Card;
+export default ({ children }) => <View style={styles.view}>{children}</View>;

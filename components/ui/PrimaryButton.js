@@ -1,21 +1,13 @@
 import { Pressable, Text, StyleSheet } from "react-native";
 
-import { COLORS } from "../../utilities/constants/colors";
-
-const PrimaryButton = ({ children, onPress }) => {
-	return (
-		<Pressable style={styles.pressable} onPress={onPress}>
-			<Text style={styles.text}>{children}</Text>
-		</Pressable>
-	);
-};
+import COLORS from "../../utilities/constants/colors";
 
 const styles = StyleSheet.create({
 	pressable: {
 		borderColor: COLORS.secondaryText,
 		borderWidth: 2,
 		marginHorizontal: 8,
-		borderRadius: 6,
+		borderRadius: 4,
 		backgroundColor: COLORS.primaryBackground,
 		width: 130,
 		height: 30,
@@ -29,4 +21,8 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default PrimaryButton;
+export default ({ children, onPress }) => (
+	<Pressable style={styles.pressable} onPress={onPress}>
+		<Text style={styles.text}>{children}</Text>
+	</Pressable>
+);

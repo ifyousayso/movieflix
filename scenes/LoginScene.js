@@ -1,14 +1,37 @@
-import { Alert, View, TextInput, StyleSheet } from "react-native";
-import { useState } from "react";
+import { createRef, useState } from "react";
+import { Alert, TextInput, StyleSheet, View } from "react-native";
 
-import { COLORS } from "../utilities/constants/colors";
-import H2 from "../components/ui/H2";
+import COLORS from "../utilities/constants/colors";
 import Card from "../components/ui/Card";
+import H2 from "../components/ui/H2";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import SceneTemplate from "../components/ui/SceneTemplate";
 
-const LoginScene = ({ logIn }) => {
+const styles = StyleSheet.create({
+	view: {
+		paddingBottom: 24
+	},
+	textInput: {
+		fontSize: 16,
+		padding: 4,
+		borderBottomWidth: 1,
+		width: "100%",
+		borderBottomColor: COLORS.secondaryText,
+		textAlign: "center",
+		marginBottom: 24,
+		color: COLORS.lightText
+	},
+	buttonRow: {
+		flexDirection: "row"
+	}
+});
+
+export default ({ navigation }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const emailRef = createRef();
+	const passwordRef = createRef();
 
 	const onChangeTextEmail = (email) => {
 		setEmail(email);
@@ -26,72 +49,67 @@ const LoginScene = ({ logIn }) => {
 				[{ text: "OK", style: "default" }]
 			);
 
-			// if (email.trim().length === 0) {
-			// 	setEmail("");
-			// 	console.log("-" + email + "-");
-			// }
+			// Om båda fälten anses tomma, kommer först lösenordet att få fokus …
+			if (password.trim().length === 0) {
+				setPassword("");
+				passwordRef.current.focus();
+			}
 
-			// if (password.trim().length === 0) {
-			// 	setPassword("");
-			// }
+			// … och sedan e-postadressen.
+			if (email.trim().length === 0) {
+				setEmail("");
+				emailRef.current.focus();
+			}
 
 			return;
 		}
 
-		logIn();
+		setPassword("");
+		passwordRef.current.blur();
+		setEmail("");
+		emailRef.current.blur();
 
-		console.log("login!" + Math.random());
+		navigation.navigate("Main");
 	};
 
 	const onPressRegister = () => {
+		// Math.random() skapar olika meddelanden som är lätta att se om fönstret är fullt.
 		console.log("register!" + Math.random());
 	};
 
 	return (
-		<View>
-			<H2>Welcome</H2>
-			<Card>
-				<TextInput
-					style={styles.textInput}
-					placeholder="e-mail"
-					placeholderTextColor={COLORS.darkText}
-					keyboardType="email-address"
-					autoCapitalize="none"
-					autoCorrect={false}
-					onChangeText={onChangeTextEmail}
-				/>
-				<TextInput
-					style={styles.textInput}
-					placeholder="password"
-					placeholderTextColor={COLORS.darkText}
-					keyboardType="default"
-					secureTextEntry={true}
-					autoCapitalize="none"
-					onChangeText={onChangeTextPassword}
-				/>
-				<View style={styles.buttonRow}>
-					<PrimaryButton onPress={onPressLogin}>Log in</PrimaryButton>
-					<PrimaryButton onPress={onPressRegister}>Register</PrimaryButton>
-				</View>
-			</Card>
-		</View>
+		<SceneTemplate>
+			<View style={styles.view}>
+				<H2>Welcome</H2>
+				<Card>
+					<TextInput
+						style={styles.textInput}
+						placeholder="e-mail"
+						placeholderTextColor={COLORS.darkText}
+						value={email}
+						ref={emailRef}
+						keyboardType="email-address"
+						autoCapitalize="none"
+						autoCorrect={false}
+						onChangeText={onChangeTextEmail}
+					/>
+					<TextInput
+						style={styles.textInput}
+						placeholder="password"
+						placeholderTextColor={COLORS.darkText}
+						value={password}
+						ref={passwordRef}
+						keyboardType="default"
+						secureTextEntry={true}
+						autoCapitalize="none"
+						onChangeText={onChangeTextPassword}
+					/>
+					<View style={styles.buttonRow}>
+						<PrimaryButton onPress={onPressLogin}>Log in</PrimaryButton>
+						<PrimaryButton onPress={onPressRegister}>Register</PrimaryButton>
+					</View>
+				</Card>
+			</View>
+		</SceneTemplate>
 	);
 };
-
-const styles = StyleSheet.create({
-	textInput: {
-		fontSize: 16,
-		padding: 4,
-		borderBottomWidth: 1,
-		width: "100%",
-		borderBottomColor: COLORS.secondaryText,
-		textAlign: "center",
-		marginBottom: 24,
-		color: COLORS.lightText
-	},
-	buttonRow: {
-		flexDirection: "row"
-	}
-});
-
-export default LoginScene;

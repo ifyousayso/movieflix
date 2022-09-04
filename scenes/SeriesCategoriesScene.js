@@ -1,18 +1,18 @@
 import { FlatList } from "react-native";
 
-import { MOVIE_SERIES_CATEGORIES } from "../data/CategoriesData";
-import SceneTemplate from "../components/ui/SceneTemplate";
+import CATEGORIES from "../data/CategoriesData";
 import CategoryItem from "../components/CategoryItem";
+import SceneTemplate from "../components/ui/SceneTemplate";
 
-const SeriesCategoriesScene = () => {
-	const renderCategoryItem = (category) => {
-		return <CategoryItem item={category.item} />;
-	};
+export default () => {
+	const renderCategoryItem = (category) => (
+		<CategoryItem item={category.item} />
+	);
 
 	return (
 		<SceneTemplate>
 			<FlatList
-				data={MOVIE_SERIES_CATEGORIES}
+				data={CATEGORIES.FILM}
 				numColumns={3}
 				keyExtractor={(item) => item.id}
 				renderItem={renderCategoryItem}
@@ -20,5 +20,3 @@ const SeriesCategoriesScene = () => {
 		</SceneTemplate>
 	);
 };
-
-export default SeriesCategoriesScene;

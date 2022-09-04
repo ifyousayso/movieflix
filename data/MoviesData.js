@@ -1,6 +1,6 @@
 import Movie from "../models/Movie";
 
-export const MOVIES = [
+export default [
 	new Movie(
 		"tt0372784",
 		"Batman Begins",
@@ -41,7 +41,7 @@ export const MOVIES = [
 		"109 min",
 		"Dean Devlin",
 		"Gerard Butler, Jim Sturgess, Abbie Cornish",
-		"When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.",
+		"When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.",
 		5,
 		"https://m.media-amazon.com/images/M/MV5BMTA0OTQwMTIxNzheQTJeQWpwZ15BbWU4MDQ1MzI3OTMy._V1_SX300.jpg"
 	),

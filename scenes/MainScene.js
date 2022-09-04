@@ -1,11 +1,31 @@
 import { View, StyleSheet, Image } from "react-native";
 
-import SceneTemplate from "../components/ui/SceneTemplate";
+import COLORS from "../utilities/constants/colors";
 import H2 from "../components/ui/H2";
 import PrimaryButton from "../components/ui/PrimaryButton";
-import { COLORS } from "../utilities/constants/colors";
+import SceneTemplate from "../components/ui/SceneTemplate";
 
-const MainScene = ({ navigation }) => {
+const styles = StyleSheet.create({
+	categoriesBox: {
+		alignItems: "center"
+	},
+	buttonRow: {
+		flexDirection: "row",
+		height: 50
+	},
+	recommendedBox: {
+		alignItems: "center"
+	},
+	poster: {
+		width: 200,
+		height: 200,
+		borderWidth: 1,
+		borderColor: COLORS.primaryText,
+		borderRadius: 4
+	}
+});
+
+export default ({ navigation }) => {
 	const onPressDocumentaries = () => {
 		navigation.navigate("DocumentaryCategories");
 	};
@@ -48,25 +68,3 @@ const MainScene = ({ navigation }) => {
 		</SceneTemplate>
 	);
 };
-
-const styles = StyleSheet.create({
-	categoriesBox: {
-		alignItems: "center"
-	},
-	buttonRow: {
-		flexDirection: "row",
-		height: 50
-	},
-	recommendedBox: {
-		alignItems: "center"
-	},
-	poster: {
-		width: 160,
-		height: 160,
-		borderWidth: 1,
-		borderColor: COLORS.primaryText,
-		borderRadius: 4
-	}
-});
-
-export default MainScene;

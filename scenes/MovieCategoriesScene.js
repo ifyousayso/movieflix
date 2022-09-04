@@ -1,10 +1,17 @@
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 
-import { MOVIE_SERIES_CATEGORIES } from "../data/CategoriesData";
-import SceneTemplate from "../components/ui/SceneTemplate";
+import CATEGORIES from "../data/CategoriesData";
 import CategoryItem from "../components/CategoryItem";
+import SceneTemplate from "../components/ui/SceneTemplate";
 
-const MovieCategoriesScene = ({ navigation }) => {
+const styles = StyleSheet.create({
+	flatList: {
+		flexGrow: 0,
+		paddingBottom: 24
+	}
+});
+
+export default ({ navigation }) => {
 	const renderCategoryItem = (category) => {
 		const onPressCategoryItem = () => {
 			navigation.navigate("Movies", {
@@ -18,7 +25,8 @@ const MovieCategoriesScene = ({ navigation }) => {
 	return (
 		<SceneTemplate>
 			<FlatList
-				data={MOVIE_SERIES_CATEGORIES}
+				style={styles.flatList}
+				data={CATEGORIES.FILM}
 				numColumns={3}
 				keyExtractor={(item) => item.id}
 				renderItem={renderCategoryItem}
@@ -26,5 +34,3 @@ const MovieCategoriesScene = ({ navigation }) => {
 		</SceneTemplate>
 	);
 };
-
-export default MovieCategoriesScene;
