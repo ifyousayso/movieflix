@@ -1,7 +1,8 @@
-import { View, StyleSheet, Image } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 
 import COLORS from "../utilities/constants/colors";
 import H2 from "../components/ui/H2";
+import MOVIES from "../data/MoviesData";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import SceneTemplate from "../components/ui/SceneTemplate";
 
@@ -26,6 +27,8 @@ const styles = StyleSheet.create({
 });
 
 export default ({ navigation }) => {
+	const posterMovie = MOVIES.find((movie) => movie.id === "tt0078748");
+
 	const onPressDocumentaries = () => {
 		navigation.navigate("DocumentaryCategories");
 	};
@@ -40,6 +43,10 @@ export default ({ navigation }) => {
 
 	const onPressSports = () => {
 		navigation.navigate("SportCategories");
+	};
+
+	const onPressPoster = () => {
+		navigation.navigate("Details", { movie: posterMovie });
 	};
 
 	return (
@@ -59,11 +66,15 @@ export default ({ navigation }) => {
 			</View>
 			<View style={styles.recommendedBox}>
 				<H2>We recommend …</H2>
-				<Image
-					style={styles.poster}
-					resizeMode="cover"
-					source={require("../assets/images/the-batman.jpg")}
-				/>
+				<Pressable onPress={onPressPoster}>
+					<Image
+						style={styles.poster}
+						resizeMode="cover"
+						source={{
+							uri: posterMovie.imageUrl
+						}}
+					/>
+				</Pressable>
 			</View>
 		</SceneTemplate>
 	);

@@ -55,5 +55,17 @@ export default [
 		"A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
 		2,
 		"https://m.media-amazon.com/images/M/MV5BZTkwZjU3MTctMGExMi00YjU5LTgwMDMtOWNkZDRlZjQ4NmZhXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg"
+	),
+	new Movie(
+		"tt0078748",
+		"Alien",
+		"1979",
+		"117 min",
+		"Ridley Scott",
+		"Sigourney Weaver, Tom Skerritt, John Hurt",
+		"The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.",
+		4,
+		"https://m.media-amazon.com/images/M/MV5BODRmZjkyYjUtZTE2YS00MmU3LTkyMDQtM2NkZjg3MmE0Y2JhXkEyXkFqcGdeQXVyNzY2NTQ2MzA@._V1_SX300.jpg"
+		// "https://m.media-amazon.com/images/M/MV5BMTg4NjEwMzg0OF5BMl5BanBnXkFtZTcwNjM2NTUyMw@@._V1_SX300.jpg"
 	)
 ];
