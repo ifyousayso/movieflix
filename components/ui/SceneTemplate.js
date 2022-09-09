@@ -1,8 +1,7 @@
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import COLORS from "../../utilities/constants/colors";
-import AppName from "./AppName";
 
 const styles = StyleSheet.create({
 	background: {
@@ -10,12 +9,6 @@ const styles = StyleSheet.create({
 	},
 	backgroundImage: {
 		opacity: 0.2
-	},
-	scene: {
-		flex: 1,
-		flexDirection: "column",
-		padding: 4,
-		justifyContent: "space-evenly"
 	}
 });
 
@@ -27,8 +20,7 @@ export default ({ children }) => (
 			style={styles.background}
 			resizeMode="cover"
 		>
-			<AppName />
-			<View style={styles.scene}>{children}</View>
+			{children}
 		</ImageBackground>
 	</LinearGradient>
 );

@@ -2,14 +2,18 @@ import { createRef, useState } from "react";
 import { Alert, TextInput, StyleSheet, View } from "react-native";
 
 import COLORS from "../utilities/constants/colors";
+import AppName from "../components/ui/AppName";
 import Card from "../components/ui/Card";
 import H2 from "../components/ui/H2";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import SceneTemplate from "../components/ui/SceneTemplate";
 
 const styles = StyleSheet.create({
-	view: {
-		paddingBottom: 24
+	containerBox: {
+		flexGrow: 1,
+		flexDirection: "column",
+		justifyContent: "space-between",
+		padding: 12
 	},
 	textInput: {
 		fontSize: 16,
@@ -79,36 +83,42 @@ export default ({ navigation }) => {
 
 	return (
 		<SceneTemplate>
-			<View style={styles.view}>
-				<H2>Welcome</H2>
-				<Card>
-					<TextInput
-						style={styles.textInput}
-						placeholder="e-mail"
-						placeholderTextColor={COLORS.darkText}
-						value={email}
-						ref={emailRef}
-						keyboardType="email-address"
-						autoCapitalize="none"
-						autoCorrect={false}
-						onChangeText={onChangeTextEmail}
-					/>
-					<TextInput
-						style={styles.textInput}
-						placeholder="password"
-						placeholderTextColor={COLORS.darkText}
-						value={password}
-						ref={passwordRef}
-						keyboardType="default"
-						secureTextEntry={true}
-						autoCapitalize="none"
-						onChangeText={onChangeTextPassword}
-					/>
-					<View style={styles.buttonRow}>
-						<PrimaryButton onPress={onPressLogin}>Log in</PrimaryButton>
-						<PrimaryButton onPress={onPressRegister}>Register</PrimaryButton>
-					</View>
-				</Card>
+			<View style={styles.containerBox}>
+				<AppName />
+				<View>
+					<H2>Welcome</H2>
+					<Card>
+						<TextInput
+							style={styles.textInput}
+							placeholder="e-mail"
+							placeholderTextColor={COLORS.darkText}
+							value={email}
+							ref={emailRef}
+							keyboardType="email-address"
+							autoCapitalize="none"
+							autoCorrect={false}
+							onChangeText={onChangeTextEmail}
+						/>
+						<TextInput
+							style={styles.textInput}
+							placeholder="password"
+							placeholderTextColor={COLORS.darkText}
+							value={password}
+							ref={passwordRef}
+							keyboardType="default"
+							secureTextEntry={true}
+							autoCapitalize="none"
+							onChangeText={onChangeTextPassword}
+						/>
+						<View style={styles.buttonRow}>
+							<PrimaryButton onPress={onPressLogin}>Log in</PrimaryButton>
+							<PrimaryButton onPress={onPressRegister} disabled={true}>
+								Register
+							</PrimaryButton>
+						</View>
+					</Card>
+				</View>
+				<View />
 			</View>
 		</SceneTemplate>
 	);

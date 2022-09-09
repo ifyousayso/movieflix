@@ -1,13 +1,16 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
 import CATEGORIES from "../data/CategoriesData";
+import AppName from "../components/ui/AppName";
 import CategoryItem from "../components/CategoryItem";
 import SceneTemplate from "../components/ui/SceneTemplate";
 
 const styles = StyleSheet.create({
-	flatList: {
-		flexGrow: 0,
-		paddingBottom: 24
+	contentContainer: {
+		flexGrow: 1,
+		flexDirection: "column",
+		justifyContent: "space-between",
+		padding: 12
 	}
 });
 
@@ -30,6 +33,11 @@ export default ({ navigation }) => {
 				numColumns={3}
 				keyExtractor={(item) => item.id}
 				renderItem={renderCategoryItem}
+				contentContainerStyle={styles.contentContainer}
+				// AppName fick vara i headern på FlatList för att den ska scrolla med resten av innehållet.
+				ListHeaderComponent={AppName}
+				// En tom View används i footern för att m.h.a. justifyContent skapa plats i botten men inte ovanför titeln när innehållet inte fyller upp skärmen på höjden.
+				ListFooterComponent={View}
 			/>
 		</SceneTemplate>
 	);

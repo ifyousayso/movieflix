@@ -41,7 +41,7 @@ export default [
 		"109 min",
 		"Dean Devlin",
 		"Gerard Butler, Jim Sturgess, Abbie Cornish",
-		"When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.",
+		"When the network of satellites designed to control the global climate starts to attack Earth, it is a race against the clock for its creator to uncover the real threat before a worldwide Geostorm wipes out everything and everyone.",
 		5,
 		"https://m.media-amazon.com/images/M/MV5BMTA0OTQwMTIxNzheQTJeQWpwZ15BbWU4MDQ1MzI3OTMy._V1_SX300.jpg"
 	),
@@ -66,6 +66,5 @@ export default [
 		"The crew of a commercial spacecraft encounter a deadly lifeform after investigating an unknown transmission.",
 		4,
 		"https://m.media-amazon.com/images/M/MV5BODRmZjkyYjUtZTE2YS00MmU3LTkyMDQtM2NkZjg3MmE0Y2JhXkEyXkFqcGdeQXVyNzY2NTQ2MzA@._V1_SX300.jpg"
-		// "https://m.media-amazon.com/images/M/MV5BMTg4NjEwMzg0OF5BMl5BanBnXkFtZTcwNjM2NTUyMw@@._V1_SX300.jpg"
 	)
 ];

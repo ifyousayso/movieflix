@@ -24,16 +24,16 @@ export default () => (
 			}}
 		>
 			<Stack.Screen
-				name="Main"
-				component={MainScene}
-				// Tom titel i scenen men "Logoff" i tillbaka-knappen!
-				options={{ title: "", headerBackTitle: "Logoff" }}
-			/>
-			<Stack.Screen
 				name="Login"
 				component={LoginScene}
 				// Tom titel, både i scenen och i tillbaka-knappen; "null" visar annars "Back" efter pilen.
 				options={{ title: "" }}
+			/>
+			<Stack.Screen
+				name="Main"
+				component={MainScene}
+				// Tom titel i scenen men "Log off" i tillbaka-knappen!
+				options={{ title: "", headerBackTitle: "Log off" }}
 			/>
 			<Stack.Screen
 				name="DocumentaryCategories"

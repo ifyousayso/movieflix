@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 		fontSize: 30,
 		color: COLORS.primaryText,
 		fontWeight: "bold",
-		padding: 12
+		paddingBottom: 12
 	}
 });
 
