@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 export default ({ children }) => (
 	<LinearGradient colors={COLORS.gradientBackground}>
 		<ImageBackground
-			source={require("../../assets/images/bg_batman.jpg")}
+			source={require("../../assets/images/Batman.jpg")}
 			imageStyle={styles.backgroundImage}
 			style={styles.background}
 			resizeMode="cover"
